@@ -2,7 +2,6 @@ import React, {Component} from "react";
 import Note from './Note';
 import {Button, Table} from "react-bootstrap";
 import {confirmAlert} from 'react-confirm-alert';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import 'react-confirm-alert/src/react-confirm-alert.css';
 
 class Notes extends Component {
@@ -26,6 +25,10 @@ class Notes extends Component {
         this.setState({
             [name]: e.target.value
         })
+    }
+    
+    filter(content){
+        return content.length > 25 ? content.substring(0,25) + "..." : content;
     }
 
     addNote(){
@@ -106,8 +109,8 @@ class Notes extends Component {
                         key = {key} 
                         title={note.title}
                         category={note.category}
-                        content={note.content}
-                        date={note.date}
+                        content={this.filter(note.content)}
+                        status={note.status}
                         />
                   );
               })}

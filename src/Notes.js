@@ -4,7 +4,7 @@ import {Button, Table} from "react-bootstrap";
 import {confirmAlert} from 'react-confirm-alert';
 import 'react-confirm-alert/src/react-confirm-alert.css';
 import NoteClass from './class/NoteClass'
-import {ChangeNoteStatusForm,DetailForm,EditForm,DeleteForm} from './class'
+import {ChangeNoteStatusForm,DetailForm,EditForm,DeleteForm,RemindForm, AddNote} from './class'
 
 class Notes extends Component {
     constructor(props){
@@ -28,26 +28,7 @@ class Notes extends Component {
         this.remindNote = this.remindNote.bind(this);
     }
 
-    onClick = () =>{
-        confirmAlert(
-            {customUI: ({onClose}) =>{
-                return(
-                    <div>
-                        <h1>Add content to note</h1>
-                        <p><textarea cols="50" rows="10" id="content" defaultValue={this.state.content} onChange={(e)=> this.onChange(e)}></textarea></p>
-                        <Button style={{float:"right"}} variant="danger" onClick={onClose}>Close window</Button>
-                    </div>
-                )
-            }}
-        )
-    }
-
-    onChange = (e)=>{
-        var name = e.target.id;
-        this.setState({
-            [name]: e.target.value
-        })
-    }
+   
     
     filter(content){
         return content.length > 25 ? content.substring(0,25) + "..." : content;

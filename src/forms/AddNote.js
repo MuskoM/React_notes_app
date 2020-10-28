@@ -1,4 +1,33 @@
-<Table striped bordered>
+import React, { Component } from 'react';
+import {Button, Table} from "react-bootstrap";
+import {confirmAlert} from 'react-confirm-alert';
+
+export default class AddNote extends Component {
+
+    onClick = () =>{
+        confirmAlert(
+            {customUI: ({onClose}) =>{
+                return(
+                    <div>
+                        <h1>Add content to note</h1>
+                        <p><textarea cols="50" rows="10" id="content" defaultValue={this.state.content} onChange={(e)=> this.onChange(e)}></textarea></p>
+                        <Button style={{float:"right"}} variant="danger" onClick={onClose}>Close window</Button>
+                    </div>
+                )
+            }}
+        )
+    }
+
+    onChange = (e)=>{
+        var name = e.target.id;
+        this.setState({
+            [name]: e.target.value
+        })
+    }
+    
+    render() {
+        return (
+            <Table striped bordered>
               <tbody>
                   <tr>
                       <td colSpan="5" style={{textAlign: "center"}}><i><b>Add new note</b></i></td>
@@ -27,3 +56,6 @@
                   </tr>
               </tbody>
           </Table>
+        )
+    }
+}

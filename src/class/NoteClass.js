@@ -1,6 +1,5 @@
-class NoteClass{
-
-    constructor(id,title,category,content,status,date,time){
+class NoteClass {
+    constructor(id, title, category, content, status, date, time){
         this.id = id;
         this.title = title;
         this.category = category;
@@ -9,5 +8,6 @@ class NoteClass{
         this.date = date;
         this.time = time;
     }
-
 }
+
+export default NoteClass;

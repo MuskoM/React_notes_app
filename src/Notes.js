@@ -4,6 +4,7 @@ import {Button, Table} from "react-bootstrap";
 import {confirmAlert} from 'react-confirm-alert';
 import 'react-confirm-alert/src/react-confirm-alert.css';
 import NoteClass from './class/NoteClass'
+import {ChangeNoteStatusForm,DetailForm,EditForm,DeleteForm} from './class'
 
 class Notes extends Component {
     constructor(props){

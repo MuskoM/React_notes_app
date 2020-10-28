@@ -2,7 +2,7 @@ import React from 'react';
 import { Button } from 'react-bootstrap';
 import * as Icon from 'react-bootstrap-icons';
 
-const DeleteForm = (props) => {
+export const DeleteForm = (props) => {
     const {deleteNote, onClose, index} = props;
 
     return(
